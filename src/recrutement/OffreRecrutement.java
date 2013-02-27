@@ -31,6 +31,7 @@ public class OffreRecrutement implements HttpHandler {
         }
 
         byte[] reponse = resultat.getBytes();
+        httpExchange.getResponseHeaders().set("Content-Type", "text/html; charset=utf-8");
         httpExchange.sendResponseHeaders(HttpURLConnection.HTTP_OK, reponse.length);
         httpExchange.getResponseBody().write(reponse);
         httpExchange.close();
